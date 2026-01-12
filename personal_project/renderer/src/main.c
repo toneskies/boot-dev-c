@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "display.h"
+#include "mesh.h"
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
@@ -15,13 +16,12 @@ int main(int argc, char *argv[]) {
     atexit(cleanup);
 
     while (1) {
-        prepareScene();
 
         doInput();
 
-        presentScene();
+        update();
 
-        SDL_Delay(16);
+        render();
     }
 
     return 0;
